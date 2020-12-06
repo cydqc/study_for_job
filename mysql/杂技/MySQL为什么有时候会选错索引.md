@@ -25,7 +25,7 @@ CREATE TABLE `t` (
 
 但如果我们执行如下这个操作：
 
-<img src="E:\学习笔记\mysql\杂技\images\1e5ba1c2934d3b2c0d96b210a27e1a1e.png" alt="img" style="zoom:80%;" />
+<img src="mysql/杂技/images/1e5ba1c2934d3b2c0d96b210a27e1a1e.png" alt="img" style="zoom:80%;" />
 
 session A 就是开启了一个事务。随后，session B 把数据都删除后，又调用了 idata 这个存储过程，插入了 10 万行数据。为了说明优化器选择的结果是否正确，增加了一个对照，即：使用 force index(a) 来让优化器强制使用索引 a。
 
