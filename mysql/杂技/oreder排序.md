@@ -22,7 +22,7 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 
 为避免全表扫描，我们需要在 city 字段加上索引。
 
-<img src="images/12_06_00.png" alt="img" style="zoom:33%;" />
+<img src="images/12_06_00.png" alt="img" width=500 />
 
 
 
@@ -30,7 +30,7 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 
 在 city 字段上创建索引之后，我们用 explain 命令来看看这个语句的执行情况。
 
-![img](E:\学习笔记\mysql\杂技\images\12_06_01.png)
+![img](images/12_06_01.png)
 
 Extra 这个字段中的“Using filesort”表示的就是需要排序，**<u>MySQL 会给每个线程分配一块内存用于排序，称为 sort_buffer</u>**。
 
@@ -97,7 +97,7 @@ max_length_for_sort_data，是 MySQL 中专门控制用于排序的行数据的�
 alter table t add index city_user(city, name);
 ```
 
-<img src="E:\学习笔记\mysql\杂技\images\12_06_02.png" alt="img" style="zoom:33%;" />
+<img src="images/12_06_02.png" alt="img" width=500 />
 
 在这个索引里面，我们依然可以用树搜索的方式定位到第一个满足 city='杭州’的记录，并且额外确保了，接下来按顺序取“下一条记录”的遍历过程中，只要 city 的值是杭州，name 的值就一定是有序的。这样整个查询过程的流程就变成了：
 
