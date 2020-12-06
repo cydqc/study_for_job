@@ -17,7 +17,7 @@ CREATE TABLE `t` (
 
 我们执行 select * from t where a between 10000 and 20000; 结果如下:
 
-![img](mysql\杂技\images\2cfce769551c6eac9bfbee0563d48fe3.png)
+![img](images\2cfce769551c6eac9bfbee0563d48fe3.png)
 
 这条查询语句的执行也确实符合预期，key 这个字段值是’a’，表示优化器选择了索引 a。
 
