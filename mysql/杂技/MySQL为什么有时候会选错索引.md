@@ -66,7 +66,7 @@ select * from t where (a between 1 and 1000) and (b between 50000 and 100000) or
 
 实际如下，优化器选择了索引 b。
 
-![img](E:\学习笔记\mysql\杂技\images\483bcb1ef3bb902844e80d9cbdd73ab8.png)
+![img](https://github.com/cydqc/study_for_job/blob/main/mysql/%E6%9D%82%E6%8A%80/images/483bcb1ef3bb902844e80d9cbdd73ab8.png)
 
 **<u>之所以这样是因为优化器认为使用索引 b 可以避免排序（b 本身是索引，已经是有序的了，如果选择索引 b 的话，不需要再做排序，只需要遍历）</u>**，所以即使扫描行数多，也判定为代价更小。
 
