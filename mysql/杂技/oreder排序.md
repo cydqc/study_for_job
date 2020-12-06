@@ -22,7 +22,7 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 
 为避免全表扫描，我们需要在 city 字段加上索引。
 
-<img src="..\images\12_06_00.png" alt="img" style="zoom:33%;" />
+<img src="../images/12_06_00.png" alt="img" style="zoom:33%;" />
 
 
 
